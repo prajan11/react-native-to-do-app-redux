@@ -9,11 +9,11 @@ const ToDoList = ({ editTaskHandler, editStatus, toDos}) => {
     return ( 
         <View style={styles.container}>
             <View style={styles.taskListHeading}>   
-                <Text style={styles.taskListText}>Task Lists</Text>       
+                <Text style={styles.taskListText}>List of Tasks</Text>       
             </View>
 
             {toDos.map( (task) => {
-                return <ToDoItem key={task.id} id={task.id} taskName={task.taskName}  editTaskHandler={editTaskHandler}  editStatus={editStatus} />;
+                return <ToDoItem key={task.id} id={task.id} taskName={task.taskName} />;
             })}
 
             {/* <ToDoItem /> */}

@@ -1,5 +1,7 @@
 import React, {useState, useEffect} from 'react';
-import { Button, Pressable, Text, TextInput, View } from 'react-native';
+import { Pressable, Text, TextInput, View } from 'react-native';
+import AntDesign from 'react-native-vector-icons/AntDesign';
+import FontAwesome5 from 'react-native-vector-icons/FontAwesome5';
 import styles from './style';
 import {addTodoData, editToDoTask} from '../../redux/actions/index';
 import {connect}  from 'react-redux';
@@ -9,12 +11,11 @@ import {connect}  from 'react-redux';
 const ToDoForm = ({addTodoData, editTaskId, toDos, editToDoTask}) => {
 
     const [enteredTask, setEnteredTask] = useState("");
-    const [editTask, setEditTask] = useState("");
 
     useEffect(() => {
         if(editTaskId != ""){
-            const editTaskName = toDos.filter((item) => item.id === editTaskId);
-            setEnteredTask(editTaskName[0].taskName);
+            const editTaskName = toDos.find((item) => item.id === editTaskId);
+            setEnteredTask(editTaskName.taskName);
         }
     }, [editTaskId]);
 
@@ -40,16 +41,22 @@ const ToDoForm = ({addTodoData, editTaskId, toDos, editToDoTask}) => {
             <TextInput
                 style={ styles.inputField}
                 onChangeText={(text) => handleTaskFieldChange(text)}
-                value={enteredTask} />
+                value={enteredTask}
+                placeholder="Write a task"
+                />
         
             <View style={[styles.button, editTaskId != "" ? styles.editButton : styles.addButton]}>
                 {
-                    editTaskId.length > 0 ?    <Pressable onPress={() => updateButtonClickHandler(editTaskId)} > 
-                                        <Text style={styles.buttonText}>UPDATE TASK</Text>
+                    editTaskId.length > 0 ?    <Pressable onPress={() => updateButtonClickHandler(editTaskId)} disabled={enteredTask.length > 0 ? false : true}> 
+                                        <Text style={styles.buttonText}>
+                                            <AntDesign name='edit' size={40} color="white" />
+                                        </Text>
                                     </Pressable>     
                                 : 
-                                    <Pressable onPress={() => handleAddTask()}> 
-                                        <Text style={styles.buttonText}>ADD TASK</Text>
+                                    <Pressable onPress={() => handleAddTask()} disabled={enteredTask.length > 0 ? false : true}> 
+                                        <Text style={styles.buttonText}>
+                                            <FontAwesome5 name='plus' size={40} color="white" />
+                                        </Text>
                                     </Pressable>
                 }
                 

@@ -20,64 +20,7 @@ import ToDoList from '../../components/ToDoList';
 
 
 const App: () => React$Node = () => {
-  const [enteredTask, setEnteredTask] = useState("");
-  const [taskLists, setEnteredTaskList] = useState([]);  //reducer
-  const [editStatus, setEditStatus] = useState(false);
-  const [editTask, setEditTask] = useState(null);
-
-
-  // const handleTaskList = () => {
-  //   setEnteredTaskList((taskLists) => [...taskLists, {id: uuid(), taskName:enteredTask}]);
-  //   setEnteredTask("");
-  // }
-
-  const handleTaskUpdate = (id) => {
-      const taskListsCopy = taskLists;
-
-      taskListsCopy.map( (task) => {
-        if(task.id === id){
-          task.taskName = editTask.taskName; 
-        }
-        return task;
-      });
-
-
-      setEnteredTaskList(taskListsCopy);
-      setEnteredTask("");
-      setEditStatus(false);
-      setEditTask(null);
-  }
-
-  const deleteTaskFromTaskList = (id) => {
-    
-    let taskListsCopy = taskLists;
-    
-
-    taskListsCopy = taskListsCopy.filter( (task) => {
-        return task.id !== id;
-     
-    });
-
-    setEnteredTaskList(taskListsCopy);
-  }
-
-  const handleTaskEdit = (id) => {
-      setEditStatus(true);
-      const editTask = taskLists.filter( (task) => {
-        return task.id === id;
-      })[0];
-      setEditTask(editTask);
-  }
-
-  // const handleTaskFieldChange = (text) => {
-  //   if(editStatus){
-  //     setEditTask({...editTask, taskName: text})
-  //   }
-  //   else{
-  //     setEnteredTask(text);
-  //   }
-    
-  // }
+  
 
   return (
 
@@ -88,10 +31,12 @@ const App: () => React$Node = () => {
             To Do App
           </Text>
         </View>
-      
-        <ToDoForm taskTextValue={enteredTask} editButtonClickHandler={handleTaskUpdate} editStatus={editStatus} editTask={editTask} />
+       
 
-        <ToDoList tasks = {taskLists} editTaskHandler={handleTaskEdit} deleteTaskHandler={deleteTaskFromTaskList} editStatus={editStatus} />
+        <ToDoList />
+        <ToDoForm />
+
+       
         
       </View>
 

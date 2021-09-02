@@ -4,39 +4,37 @@ const styles = StyleSheet.create({
     container: {
         position: 'absolute',
         width: '80%',
-        marginTop: '20%',
-        marginLeft: '10%',
-        borderWidth: 3,
-        borderColor: 'blue',
-        borderRadius: 10,
+        left: '10%',
+        bottom: '5%',
+        flexDirection: 'row',
     },
     inputField: {
-        height: 40, 
-        borderColor: 'black',
-        borderWidth: 2,
-        width: '90%',
-        marginLeft: '5%',
-        marginTop: '5%',
-        marginBottom: '5%',
+        height: 60, 
+        width: '80%',
         fontSize: 19,
+        borderRadius: 40,
+        backgroundColor: 'white',
+        paddingLeft: 25,
+        marginTop: 10
     },
     button: {
-        width: '90%',
+        width: '20%',
+        height: 80,
         marginLeft: '5%',
-        borderRadius: 15,
-        alignItems: 'center',
-        padding: 5,
+        textAlign: 'center',
+        borderRadius: 70,
+        paddingTop: 15
     },
     buttonText: {
-        fontSize: 18,
+        fontSize: 35,
         color: 'white',
-        letterSpacing:5,
+        textAlign: 'center',
     },
     addButton: {
-        backgroundColor: 'blue',
+        backgroundColor: 'green',
     },
     editButton: {
-        backgroundColor: 'green',
+        backgroundColor: 'teal',
     }
   
 });
