@@ -2,9 +2,10 @@ import { StyleSheet } from 'react-native';
 
 const styles = StyleSheet.create({
     container: {
+        flex: 1,
         position: 'absolute',
         width: '80%',
-        marginTop: '15%',
+        marginTop: '5%',
         marginLeft: '10%',
     },
     taskListHeading:{

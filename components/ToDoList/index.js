@@ -1,5 +1,5 @@
 import React from 'react';
-import { View, Text } from 'react-native';
+import { View, Text, ScrollView } from 'react-native';
 import ToDoItem from '../ToDoItem';
 import styles from './style';
 import {connect} from 'react-redux';
@@ -8,16 +8,12 @@ import {connect} from 'react-redux';
 const ToDoList = ({ editTaskHandler, editStatus, toDos}) => {
     return ( 
         <View style={styles.container}>
-            <View style={styles.taskListHeading}>   
-                <Text style={styles.taskListText}>List of Tasks</Text>       
-            </View>
-
-            {toDos.map( (task) => {
-                return <ToDoItem key={task.id} id={task.id} taskName={task.taskName} />;
-            })}
-
-            {/* <ToDoItem /> */}
-
+            {/* <ScrollView style={{flex:1, borderColor: 'red', borderWidth: 5}}> */}
+                {toDos.map( (task) => {
+                    return <ToDoItem key={task.id} id={task.id} taskName={task.taskName} />;
+                })}
+            {/* </ScrollView> */}
+            
         </View>
      );
 }
