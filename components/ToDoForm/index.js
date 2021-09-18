@@ -20,7 +20,7 @@ const ToDoForm = ({addTodoData, editTaskId, toDos, editToDoTask}) => {
     }, [editTaskId]);
 
     const handleTaskFieldChange = (text) => {
-          console.log(text);
+        //   console.log(text);
           setEnteredTask(text);
     }
 

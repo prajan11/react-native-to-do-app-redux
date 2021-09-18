@@ -2,7 +2,8 @@ import {
     ADD_TO_DO,
     EDIT_TO_DO,
     DELETE_TO_DO,
-    SET_EDIT_TASK
+    SET_EDIT_TASK,
+    MARK_TO_DO_DONE
 } from '../actionTypes/index';
 import uuid from 'react-uuid';
 
@@ -26,7 +27,6 @@ const differentOperationsTODOReducer = (state = initialState, action) => {
                 editTaskId: action.payload
             }; 
         case EDIT_TO_DO:
-            console.log("Here");
             return {
                 ...state,
                 todo: state.todo.map( (item) => {
@@ -36,6 +36,16 @@ const differentOperationsTODOReducer = (state = initialState, action) => {
                                                     return item;
                                                 }),
                 editTaskId: "",
+            };
+        case MARK_TO_DO_DONE:
+            return {
+                ...state,
+                todo: state.todo.map( (item) => {
+                                                    if(item.id === action.payload.id){
+                                                        item.completed = action.payload.status;
+                                                    }
+                                                    return item;
+                                                }),
             };
         case DELETE_TO_DO:
             return {

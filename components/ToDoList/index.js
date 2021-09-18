@@ -5,7 +5,7 @@ import styles from './style';
 import {connect} from 'react-redux';
 
 
-const ToDoList = ({ editTaskHandler, editStatus, toDos}) => {
+const ToDoList = ({ toDos}) => {
     return ( 
         <View style={styles.container}>
             {/* <ScrollView style={{flex:1, borderColor: 'red', borderWidth: 5}}> */}

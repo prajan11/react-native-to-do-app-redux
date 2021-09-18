@@ -22,6 +22,14 @@ export const editToDoTask = payload => {
     });
 };
 
+export const markToDoTaskComplete = payload => {
+  // console.warn(payload.status);
+  return ({
+      type: types.MARK_TO_DO_DONE,
+      payload,
+    });
+};
+
 export const deleteToDoTask = payload => {
     // console.warn(payload);
     return ({

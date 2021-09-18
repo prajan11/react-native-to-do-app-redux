@@ -6,9 +6,9 @@ import AntDesign from 'react-native-vector-icons/AntDesign';
 import {connect} from 'react-redux';
 import CheckBox from '@react-native-community/checkbox';
 
-import {deleteToDoTask, setEditToDoTask} from '../../redux/actions/index';
+import {deleteToDoTask, setEditToDoTask, markToDoTaskComplete} from '../../redux/actions/index';
 
-const ToDoItem = ({ id, taskName, editTaskId, deleteToDoTask, setEditToDoTask}) => { 
+const ToDoItem = ({ id, taskName, editTaskId, deleteToDoTask, setEditToDoTask, markToDoTaskComplete}) => { 
     const [toggleCheckBox, setToggleCheckBox] = useState(false);
     // console.log(props);
     const handleTaskDelete = (id) => {
@@ -19,8 +19,9 @@ const ToDoItem = ({ id, taskName, editTaskId, deleteToDoTask, setEditToDoTask}) 
         setEditToDoTask(id);
     }
 
-    const toggleCheckBoxHandler = (status) => {
+    const toggleCheckBoxHandler = (id, status) => {
         console.log(status);
+        markToDoTaskComplete({id, status});
         setToggleCheckBox(status);
     }
 
@@ -30,7 +31,7 @@ const ToDoItem = ({ id, taskName, editTaskId, deleteToDoTask, setEditToDoTask}) 
                 <CheckBox
                     disabled={false}
                     value={toggleCheckBox}
-                    onValueChange={() => toggleCheckBoxHandler(!toggleCheckBox)}
+                    onValueChange={() => toggleCheckBoxHandler(id, !toggleCheckBox)}
                 />
                   
                 <Text style={styles.taskName}> 
@@ -60,7 +61,7 @@ const mapStateToProps = (state) => {
 }
 
 const mapDispatchToProps = { 
-    deleteToDoTask, setEditToDoTask 
+    deleteToDoTask, setEditToDoTask, markToDoTaskComplete 
 }
  
 export default connect(mapStateToProps, mapDispatchToProps)(ToDoItem);
