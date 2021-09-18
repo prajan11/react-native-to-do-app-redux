@@ -2,13 +2,14 @@ import React,{useState} from 'react';
 import { View, Text, Pressable } from 'react-native';
 import styles from './style';
 import FontAwesome5Icon from 'react-native-vector-icons/FontAwesome';
-import AntDesign from 'react-native-vector-icons/AntDesign';
+import AntDesign from 'react-native-vector-icons/AntDesign'; 
+import MaterialIcons from 'react-native-vector-icons/MaterialIcons'; 
 import {connect} from 'react-redux';
 import CheckBox from '@react-native-community/checkbox';
 
 import {deleteToDoTask, setEditToDoTask, markToDoTaskComplete} from '../../redux/actions/index';
 
-const ToDoItem = ({ id, taskName, editTaskId, deleteToDoTask, setEditToDoTask, markToDoTaskComplete}) => { 
+const ToDoItem = ({ id, taskName, editTaskId, deleteToDoTask, setEditToDoTask, markToDoTaskComplete, type}) => { 
     const [toggleCheckBox, setToggleCheckBox] = useState(false);
     // console.log(props);
     const handleTaskDelete = (id) => {
@@ -28,11 +29,19 @@ const ToDoItem = ({ id, taskName, editTaskId, deleteToDoTask, setEditToDoTask, m
     return ( 
         <View style={styles.container}>
             <View style={styles.taskNameContainer}>
-                <CheckBox
-                    disabled={false}
-                    value={toggleCheckBox}
-                    onValueChange={() => toggleCheckBoxHandler(id, !toggleCheckBox)}
-                />
+                {type ? (type === 'active' ? 
+                                            <MaterialIcons name="pending-actions" size={35} color="green" /> 
+                                            : 
+                                            <AntDesign name="checkcircle" size={28} color="green" />
+                                            ) : 
+
+                                            <CheckBox
+                                                disabled={false}
+                                                value={toggleCheckBox}
+                                                onValueChange={() => toggleCheckBoxHandler(id, !toggleCheckBox)}
+                                            />
+                }
+                
                   
                 <Text style={styles.taskName}> 
                     {taskName}
@@ -40,16 +49,19 @@ const ToDoItem = ({ id, taskName, editTaskId, deleteToDoTask, setEditToDoTask, m
                 
             </View>
             
-            <View style={styles.editDeleteButtonContainer}>
-                <Pressable onPress={() => handleTaskEdit(id)}> 
-                    <FontAwesome5Icon name="edit" size={30} color="green" />
-                    
-                </Pressable>
-                
-                <Pressable onPress={()=>handleTaskDelete(id)}> 
-                    <AntDesign name="delete" size={27} color="red" style={editTaskId != "" ? {display: 'none'}:''} />
-                </Pressable> 
-            </View>
+            {type ? <Text></Text> : 
+                        <View style={styles.editDeleteButtonContainer}>
+                            <Pressable onPress={() => handleTaskEdit(id)}> 
+                                <FontAwesome5Icon name="edit" size={30} color="green" />
+                                
+                            </Pressable>
+                            
+                            <Pressable onPress={()=>handleTaskDelete(id)}> 
+                                <AntDesign name="delete" size={27} color="red" style={editTaskId != "" ? {display: 'none'}:''} />
+                            </Pressable> 
+                        </View>
+            }
+            
         </View>
      );
 }

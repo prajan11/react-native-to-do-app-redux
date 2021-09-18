@@ -1,37 +1,47 @@
 import React from 'react';
-import { View, Text, StyleSheet, ImageBackground } from 'react-native';
+import { View, StyleSheet, ImageBackground } from 'react-native';
+import {connect} from 'react-redux';
+import ToDoItem from '../../components/ToDoItem';
 
-const CompletedTasksScreen = () => {
-    return ( <View>
+
+const CompletedTasksScreen = ({completedTasks}) => {
+    return ( 
+      <View style={styles.container}>
         <ImageBackground source={require('../../assets/images/background_image.jpg')} style={styles.backgroundImage} />
-        <Text>Completed Tasks Screen</Text>
-    </View>  );
+
+        <View style={styles.container_inside}>
+          {completedTasks.map((completedTask) => <ToDoItem key={completedTask.id} taskName={completedTask.taskName} type={'completed'} />)}
+        </View>
+        
+       
+        
+      </View> 
+    );
 }
 
 const styles = StyleSheet.create({
-    container: {
-      flex: 1,
-    },
-    header:{
-      position: 'absolute',
-      width: '100%',
-      alignItems:'center',
-      paddingTop: 5,
-      paddingBottom: 5,
-      backgroundColor: '#0048bd',
-    },
-    headerText: {
-      fontSize: 22,
-      letterSpacing: 5,
-      color: 'white'
-    },  
-    backgroundImage:{
-      height: '100%',
-      width:'100%',
-      resizeMode: 'cover',
-    },
+  container: {
+    flex: 1,
+  },
+  container_inside: {
+    flex: 1,
+    position: 'absolute',
+    width: '80%',
+    marginTop: '5%',
+    marginLeft: '10%',
+  },
+  backgroundImage:{
+    height: '100%',
+    width:'100%',
+    resizeMode: 'cover',
+  },
     
-    
-  });
+});
+
+const mapStateToProps = (state) => {
+  return {
+    completedTasks : state.todoRootReducer.todo.filter((item) => item.completed === true),
+  }
+}
  
-export default CompletedTasksScreen;
+export default connect(mapStateToProps, null)(CompletedTasksScreen);
