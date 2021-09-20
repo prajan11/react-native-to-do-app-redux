@@ -1,40 +1,39 @@
 import React from 'react';
-import { View, StyleSheet, ImageBackground } from 'react-native';
+import { View, StyleSheet, ImageBackground, ScrollView } from 'react-native';
 import {connect} from 'react-redux';
 import ToDoItem from '../../components/ToDoItem';
 
 
 const CompletedTasksScreen = ({completedTasks}) => {
     return ( 
-      <View style={styles.container}>
-        <ImageBackground source={require('../../assets/images/background_image.jpg')} style={styles.backgroundImage} />
+        <ImageBackground source={require('../../assets/images/background_image.jpg')} style={styles.backgroundImageContainer}>
 
-        <View style={styles.container_inside}>
-          {completedTasks.map((completedTask) => <ToDoItem key={completedTask.id} taskName={completedTask.taskName} type={'completed'} />)}
-        </View>
-        
-       
-        
-      </View> 
+          <ScrollView style={styles.scrollViewContainer} showsVerticalScrollIndicator={false} contentContainerStyle={styles.activeTasksContainer}>
+            {completedTasks.map((completedTask) => <ToDoItem key={completedTask.id} taskName={completedTask.taskName} type={'completed'} />)}
+          </ScrollView>
+
+        </ImageBackground>
     );
 }
 
 const styles = StyleSheet.create({
-  container: {
+  backgroundImageContainer:{
     flex: 1,
-  },
-  container_inside: {
-    flex: 1,
-    position: 'absolute',
-    width: '80%',
-    marginTop: '5%',
-    marginLeft: '10%',
-  },
-  backgroundImage:{
     height: '100%',
     width:'100%',
     resizeMode: 'cover',
   },
+  scrollViewContainer: {
+    height: '100%',
+    width: '100%',
+  },
+  activeTasksContainer: {
+    position: 'absolute',
+    width: '85%',
+    marginTop: '5%',
+    marginLeft: '8%',
+    paddingBottom: 70
+  }, 
     
 });
 

@@ -3,10 +3,9 @@ import { StyleSheet } from 'react-native';
 const styles = StyleSheet.create({
     container: {
         flex: 1,
-        position: 'absolute',
-        width: '80%',
+        width: '85%',
         marginTop: '5%',
-        marginLeft: '10%',
+        marginLeft: '7%',
     },
     taskListHeading:{
         textAlign: 'left',

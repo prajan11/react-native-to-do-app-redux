@@ -2,10 +2,8 @@ import { StyleSheet } from 'react-native';
 
 const styles = StyleSheet.create({
     container: {
-        position: 'absolute',
-        width: '80%',
-        left: '10%',
-        bottom: '5%',
+        width: '90%',
+        alignSelf:'center',
         flexDirection: 'row',
     },
     inputField: {
@@ -18,15 +16,15 @@ const styles = StyleSheet.create({
         marginTop: 10
     },
     button: {
-        width: '20%',
-        height: 80,
+        width: '16%',
+        height: 75,
         marginLeft: '5%',
         textAlign: 'center',
-        borderRadius: 70,
+        borderRadius: 50,
         paddingTop: 15
     },
     buttonText: {
-        fontSize: 35,
+        fontSize: 30,
         color: 'white',
         textAlign: 'center',
     },

@@ -1,5 +1,5 @@
 import React, {useState, useEffect} from 'react';
-import { Pressable, Text, TextInput, View } from 'react-native';
+import { Pressable, Text, TextInput, View, ImageBackground } from 'react-native';
 import AntDesign from 'react-native-vector-icons/AntDesign';
 import FontAwesome5 from 'react-native-vector-icons/FontAwesome5';
 import styles from './style';
@@ -20,7 +20,6 @@ const ToDoForm = ({addTodoData, editTaskId, toDos, editToDoTask}) => {
     }, [editTaskId]);
 
     const handleTaskFieldChange = (text) => {
-        //   console.log(text);
           setEnteredTask(text);
     }
 
@@ -38,6 +37,7 @@ const ToDoForm = ({addTodoData, editTaskId, toDos, editToDoTask}) => {
 
     return ( 
         <View style={styles.container}>
+            
             <TextInput
                 style={ styles.inputField}
                 onChangeText={(text) => handleTaskFieldChange(text)}
@@ -46,6 +46,7 @@ const ToDoForm = ({addTodoData, editTaskId, toDos, editToDoTask}) => {
                 />
         
             <View style={[styles.button, editTaskId != "" ? styles.editButton : styles.addButton]}>
+
                 {
                     editTaskId.length > 0 ?    <Pressable onPress={() => updateButtonClickHandler(editTaskId)} disabled={enteredTask.length > 0 ? false : true}> 
                                         <Text style={styles.buttonText}>

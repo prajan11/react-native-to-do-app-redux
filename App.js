@@ -12,6 +12,7 @@ import HomeScreen from './screens/home';
 import ActiveTasksScreen from './screens/active';
 import CompletedTasksScreen from './screens/completed';
 
+
 const {store, persistor} = configureStore();
 const Tab = createBottomTabNavigator();
 
@@ -44,14 +45,15 @@ const App = () => {
             <Tab.Screen name="All" component={HomeScreen} options={{
                                                                     title: 'All Tasks',
                                                                     headerStyle: {
-                                                                      backgroundColor: '#037ffc'
+                                                                      backgroundColor: 'royalblue'
                                                                     },
                                                                     headerTintColor: '#fff',
+                                                                    headerTitleAlign: 'center',
                                                                     headerTitleStyle: {
                                                                       fontWeight: 'bold',
-                                                          
+                                                                      alignSelf: 'center',
                                                                       fontSize: 28
-                                                            
+                                                                      
                                                                     }}} />
             <Tab.Screen name="Active" component={ActiveTasksScreen} options={{
                                                                     title: 'Active Tasks',
@@ -59,6 +61,7 @@ const App = () => {
                                                                       backgroundColor: '#037ffc'
                                                                     },
                                                                     headerTintColor: '#fff',
+                                                                    headerTitleAlign: 'center',
                                                                     headerTitleStyle: {
                                                                       fontWeight: 'bold',
                                                                       fontSize: 28
@@ -70,6 +73,7 @@ const App = () => {
                                                                       backgroundColor: '#037ffc'
                                                                     },
                                                                     headerTintColor: '#fff',
+                                                                    headerTitleAlign: 'center',
                                                                     headerTitleStyle: {
                                                                       fontWeight: 'bold',
                                                                       fontSize: 28

@@ -17,7 +17,7 @@ export default function configureStore() {
     key: 'root',
     storage: AsyncStorage,
     stateReconciler: autoMergeLevel2,
-    whitelist: ['app'],
+    whitelist: ['todoRootReducer'],
   };
   const pReducer = persistReducer(persistConfig, rootReducer);
 
