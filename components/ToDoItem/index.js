@@ -9,8 +9,8 @@ import CheckBox from '@react-native-community/checkbox';
 
 import {deleteToDoTask, setEditToDoTask, markToDoTaskComplete} from '../../redux/actions/index';
 
-const ToDoItem = ({ id, taskName, editTaskId, deleteToDoTask, setEditToDoTask, markToDoTaskComplete, type}) => { 
-    const [toggleCheckBox, setToggleCheckBox] = useState(false);
+const ToDoItem = ({ id, taskName, editTaskId, deleteToDoTask, setEditToDoTask, markToDoTaskComplete, type, completed}) => { 
+    const [toggleCheckBox, setToggleCheckBox] = useState(completed);
     // console.log(props);
     const handleTaskDelete = (id) => {
         deleteToDoTask(id);

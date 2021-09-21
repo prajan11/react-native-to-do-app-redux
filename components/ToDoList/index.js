@@ -9,7 +9,7 @@ const ToDoList = ({ toDos}) => {
     return ( 
         <View style={styles.container}>
             {toDos.map( (task) => {
-                return <ToDoItem key={task.id} id={task.id} taskName={task.taskName} />;
+                return <ToDoItem key={task.id} id={task.id} taskName={task.taskName} completed={task.completed} />;
             })}    
         </View>
      );
