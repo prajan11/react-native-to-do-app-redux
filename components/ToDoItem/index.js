@@ -21,7 +21,6 @@ const ToDoItem = ({ id, taskName, editTaskId, deleteToDoTask, setEditToDoTask, m
     }
 
     const toggleCheckBoxHandler = (id, status) => {
-        console.log(status);
         markToDoTaskComplete({id, status});
         setToggleCheckBox(status);
     }

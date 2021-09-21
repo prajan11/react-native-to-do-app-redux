@@ -33,7 +33,7 @@ const App = (props) => {
                       onContentSizeChange={() =>
                         scrollViewRef.current.scrollToEnd({animated: true})
                       }>
-            <View style={{flex:1, height:Dimensions.get('window').height-200,}}>
+            <View style={{flex:1, paddingBottom: 100}}>
               <ToDoList />
             </View>
           </ScrollView>

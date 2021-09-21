@@ -20,16 +20,15 @@ const ToDoForm = ({addTodoData, editTaskId, toDos, editToDoTask}) => {
     }, [editTaskId]);
 
     const handleTaskFieldChange = (text) => {
-            
-          setEnteredTask(text);
+        if(!(text.trim() === "")){
+        setEnteredTask(text);
+        }
+         
     }
 
     const handleAddTask = () => {
-        if(!text.trim() === ""){
-            addTodoData(enteredTask);
-            setEnteredTask("");
-        }  
-       
+        addTodoData(enteredTask);
+        setEnteredTask("");
     }
 
 
