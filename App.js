@@ -45,38 +45,43 @@ const App = () => {
             <Tab.Screen name="All" component={HomeScreen} options={{
                                                                     title: 'All Tasks',
                                                                     headerStyle: {
-                                                                      backgroundColor: 'royalblue'
+                                                                      backgroundColor: 'royalblue',
+                                                                      height: 50,
                                                                     },
                                                                     headerTintColor: '#fff',
                                                                     headerTitleAlign: 'center',
                                                                     headerTitleStyle: {
                                                                       fontWeight: 'bold',
                                                                       alignSelf: 'center',
-                                                                      fontSize: 28
+                                                                      fontSize: 24,
+                                                                      letterSpacing: 1
                                                                       
                                                                     }}} />
             <Tab.Screen name="Active" component={ActiveTasksScreen} options={{
                                                                     title: 'Active Tasks',
                                                                     headerStyle: {
-                                                                      backgroundColor: '#037ffc'
+                                                                      backgroundColor: 'royalblue',
+                                                                      height: 50,
                                                                     },
                                                                     headerTintColor: '#fff',
                                                                     headerTitleAlign: 'center',
                                                                     headerTitleStyle: {
                                                                       fontWeight: 'bold',
-                                                                      fontSize: 28
-                                                            
+                                                                      fontSize: 24,
+                                                                      letterSpacing: 1
                                                                     }}} />
             <Tab.Screen name="Completed" component={CompletedTasksScreen} options={{
                                                                     title: 'Completed Tasks',
                                                                     headerStyle: {
-                                                                      backgroundColor: '#037ffc'
+                                                                      backgroundColor: 'royalblue',
+                                                                      height: 50,
                                                                     },
                                                                     headerTintColor: '#fff',
                                                                     headerTitleAlign: 'center',
                                                                     headerTitleStyle: {
                                                                       fontWeight: 'bold',
-                                                                      fontSize: 28
+                                                                      fontSize: 24,
+                                                                      letterSpacing: 1
                                                                     }}}  />
           </Tab.Navigator>
         </NavigationContainer> 

@@ -7,24 +7,24 @@ const styles = StyleSheet.create({
         flexDirection: 'row',
     },
     inputField: {
-        height: 60, 
+        height: 40, 
         width: '80%',
-        fontSize: 19,
+        fontSize: 18,
         borderRadius: 40,
         backgroundColor: 'white',
-        paddingLeft: 25,
-        marginTop: 10
+        paddingLeft: 20,
+        marginTop: 5
     },
     button: {
-        width: '16%',
-        height: 75,
+        width:50,
+        height: 50,
         marginLeft: '5%',
-        textAlign: 'center',
-        borderRadius: 50,
-        paddingTop: 15
+        borderRadius: 25,
+        justifyContent:'center',
+        alignItems:'center',
     },
     buttonText: {
-        fontSize: 30,
+        fontSize: 10,
         color: 'white',
         textAlign: 'center',
     },

@@ -11,7 +11,8 @@ import {
   StyleSheet,
   View,
   ImageBackground,
-  ScrollView
+  ScrollView,
+  Dimensions
 } from 'react-native';
 import ToDoForm from '../../components/ToDoForm';
 import ToDoList from '../../components/ToDoList';
@@ -32,7 +33,7 @@ const App = (props) => {
                       onContentSizeChange={() =>
                         scrollViewRef.current.scrollToEnd({animated: true})
                       }>
-            <View style={{paddingBottom:100}}>
+            <View style={{flex:1, height:Dimensions.get('window').height-200,}}>
               <ToDoList />
             </View>
           </ScrollView>
@@ -55,22 +56,17 @@ const styles = StyleSheet.create({
     height: '100%',
     width:'100%',
     resizeMode: 'cover',
-    // zIndex: 1
   },
   todoFormContainer : {
-    position:'absolute', 
-    height:'10%',
+    height:70,
     width: '100%',
-    bottom:0,  
+    bottom:70,  
     alignSelf:'center', 
-    padding: 10, 
-    borderColor:'#FFF', 
+    padding: 9, 
     borderWidth:1,
-    backgroundColor: 'royalblue'
-    // zIndex: 2,
-  }
-  
-  
+    backgroundColor: 'royalblue',
+    borderColor: 'white'
+  }  
 });
 
 export default App;

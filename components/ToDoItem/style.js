@@ -5,26 +5,39 @@ const styles = StyleSheet.create({
         flexDirection: 'row',
         justifyContent: 'space-around',
         width: '100%',
-        padding: 7,
-        marginBottom: 20,
+        marginBottom: 12,
         backgroundColor: 'white',
-        borderRadius: 15
+        borderRadius: 15,
+    },
+    containerExtra: {
+        padding: 5,
     },
     taskNameContainer:{
         flex: 1,
         flexDirection: 'row',
-        padding: 10,
+        paddingLeft: 5,
+        paddingTop: 4
+    },
+    taskNameContainerExtra:{
+        paddingTop: 0
     },
     taskName: {
-        fontSize: 20,
+        fontSize: 18,
         fontWeight: 'bold',
-        paddingLeft: 15
+        paddingLeft: 5,
+        paddingTop: 4
+    },
+    taskNameExtra: {
+        paddingTop: 0,
+        paddingLeft: 10
     },
     editDeleteButtonContainer: {
         width: '30%',
         flexDirection: 'row',
         justifyContent: 'space-evenly',
         padding: 10,
+        marginLeft: 30,
+        borderColor: 'green'
     },
     
 

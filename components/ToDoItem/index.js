@@ -27,12 +27,12 @@ const ToDoItem = ({ id, taskName, editTaskId, deleteToDoTask, setEditToDoTask, m
     }
 
     return ( 
-        <View style={styles.container}>
-            <View style={styles.taskNameContainer}>
+        <View style={type === 'active' || type === 'completed' ? [styles.container, styles.containerExtra] : styles.container}>
+            <View style={type === 'active' || type === 'completed' ? [styles.taskNameContainer, styles.taskNameContainerExtra] : styles.taskNameContainer}>
                 {type ? (type === 'active' ? 
-                                            <MaterialIcons name="pending-actions" size={35} color="green" /> 
+                                            <MaterialIcons name="pending-actions" size={25} color="green" /> 
                                             : 
-                                            <AntDesign name="checkcircle" size={28} color="green" />
+                                            <FontAwesome5Icon name="check" size={25} color="green" />
                                             ) : 
 
                                             <CheckBox
@@ -43,7 +43,7 @@ const ToDoItem = ({ id, taskName, editTaskId, deleteToDoTask, setEditToDoTask, m
                 }
                 
                   
-                <Text style={styles.taskName}> 
+                <Text style={type === 'active' || type === 'completed' ? [styles.taskName, styles.taskNameExtra] : styles.taskName}> 
                     {taskName}
                 </Text>
                 
@@ -52,12 +52,12 @@ const ToDoItem = ({ id, taskName, editTaskId, deleteToDoTask, setEditToDoTask, m
             {type ? <Text></Text> : 
                         <View style={styles.editDeleteButtonContainer}>
                             <Pressable onPress={() => handleTaskEdit(id)}> 
-                                <FontAwesome5Icon name="edit" size={30} color="green" />
+                                <FontAwesome5Icon name="edit" size={24} color="green" />
                                 
                             </Pressable>
                             
                             <Pressable onPress={()=>handleTaskDelete(id)}> 
-                                <AntDesign name="delete" size={27} color="red" style={editTaskId != "" ? {display: 'none'}:''} />
+                                <AntDesign name="delete" size={22} color="red" style={editTaskId != "" ? {display: 'none'}:''} />
                             </Pressable> 
                         </View>
             }
