@@ -20,9 +20,9 @@ const ToDoForm = ({addTodoData, editTaskId, toDos, editToDoTask}) => {
     }, [editTaskId]);
 
     const handleTaskFieldChange = (text) => {
-        if(!(text.trim() === "")){
-        setEnteredTask(text);
-        }
+        // if(!(text.trim() === "")){
+            setEnteredTask(text);
+        // }
          
     }
 
@@ -51,13 +51,13 @@ const ToDoForm = ({addTodoData, editTaskId, toDos, editToDoTask}) => {
             <View style={[styles.button, editTaskId != "" ? styles.editButton : styles.addButton]}>
 
                 {
-                    editTaskId.length > 0 ?    <Pressable onPress={() => updateButtonClickHandler(editTaskId)} disabled={enteredTask.length > 0 ? false : true}> 
+                    editTaskId.length > 0 ?    <Pressable onPress={() => updateButtonClickHandler(editTaskId)} disabled={enteredTask.trim().length > 0 ? false : true}> 
                                         <Text style={styles.buttonText}>
                                             <AntDesign name='edit' size={25} color="white" />
                                         </Text>
                                     </Pressable>     
                                 : 
-                                    <Pressable onPress={() => handleAddTask()} disabled={enteredTask.length > 0 ? false : true}> 
+                                    <Pressable onPress={() => handleAddTask()} disabled={enteredTask.trim().length > 0 ? false : true}> 
                                         <Text style={styles.buttonText}>
                                             <FontAwesome5 name='plus' size={25} color="white" />
                                         </Text>
